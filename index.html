@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Weekly Tradesman - Home</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header>
+        <div class="logo">
+          <svg
+            class="hammer-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M15 12l-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0-.83-.83-.83-2.17 0-3L12 9"
+            ></path>
+            <path d="M17.64 15L22 10.64"></path>
+            <path
+              d="M20.91 11.7l-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"
+            ></path>
+          </svg>
+          <span class="logo-text">The Weekly Tradesman</span>
+        </div>
+        <nav class="header-links">
+          <a href="index.html" class="header-link">Home</a>
+          <a href="tradesmen.html" class="header-link">Tradesmen</a>
+          <a href="about.html" class="header-link">About</a>
+          <a href="#" class="header-link">Contact</a>
+        </nav>
+      </header>
+      <main class="main-content">
+        <section class="hero">
+          <h1>RATE A TRADESMAN</h1>
+          <p>Your source for skilled tradesmen ratings and information</p>
+          <a href="#" class="cta-button" id="add-tradesman-btn"
+            >Add A Tradesperson</a
+          >
+          <a href="#" class="cta-button" id="find-tradesman-btn"
+            >Find a Tradesman</a
+          >
+          <div id="search-options" style="display: none">
+            <button id="search-by-location" class="search-option-btn">
+              By Location
+            </button>
+            <button id="search-by-name" class="search-option-btn">
+              By Name
+            </button>
+          </div>
+          <div id="search-container" style="display: none">
+            <input
+              type="text"
+              id="tradesman-search"
+              placeholder="Search..."
+              autocomplete="off"
+            />
+            <ul id="search-results"></ul>
+          </div>
+        </section>
+        <section class="featured-tradesmen">
+          <h2>Featured Tradesman</h2>
+          <div class="card">
+            <div class="person-info">
+              <h3 class="person-name"></h3>
+              <p class="overall">Overall: <span id="overall-rating"></span></p>
+              <p class="specializations"></p>
+              <p class="location"></p>
+            </div>
+            <div class="person-box">
+              <div class="attributes-grid">
+                <!-- This will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p>&copy; 2023 The Weekly Tradesman. All rights reserved.</p>
+      </footer>
+    </div>
+    <script src="dummy-data.js"></script>
+    <script src="app.js"></script>
+    <!-- Add this just before the closing </body> tag -->
+    <div id="add-tradesman-popup" class="popup" style="display: none">
+      <div class="popup-content">
+        <h2>Add New Tradesperson</h2>
+        <form id="add-tradesman-form">
+          <input type="text" id="new-name" placeholder="Name" required />
+          <input
+            type="text"
+            id="new-location"
+            placeholder="Location"
+            required
+          />
+          <input
+            type="text"
+            id="new-specializations"
+            placeholder="Specializations (comma-separated)"
+            required
+          />
+          <div id="attributes-container">
+            <!-- Attributes will be dynamically added here -->
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="success-popup" class="popup" style="display: none">
+      <div class="popup-content">
+        <h2>Success!</h2>
+        <p>Tradesperson has been added. Thanks!</p>
+        <button id="ok-button">Ok</button>
+      </div>
+    </div>
+  </body>
+</html>

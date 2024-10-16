@@ -94,6 +94,10 @@ header {
   align-items: center;
 }
 
+.hero-p {
+  text-align: center;
+}
+
 .tradesman {
   max-width: 1200px;
   width: 90%;
@@ -104,6 +108,8 @@ header {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  align-self: flex-start;
+  width: 100%;
 }
 
 .person-name {
@@ -128,47 +134,71 @@ header {
   background-color: #3a3a3a;
   border-radius: 10px;
   padding: 20px;
-}
-
-.attributes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 95%;
 }
 
 .attribute {
-  background-color: #4a4a4a;
-  border-radius: 5px;
+  /* flex: 1 1 calc(33.333% - 5px); */
+  width: 30%;
+  min-width: 230px;
+  background-color: #2c2c2c;
   padding: 10px;
+  border-radius: 5px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  margin: 10px auto;
 }
 
 .attribute-name {
-  font-size: 14px;
+  flex: 1;
+  margin-right: 10px;
+  /* word-wrap: break-word; */
+  text-wrap: wrap;
+  max-width: 70%;
 }
 
 .attribute-rating {
-  font-size: 18px;
-  font-weight: bold;
-  color: #ffd000;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .attribute {
+    width: 80%;
+    margin: 3px auto;
+  }
+}
+
+@media (max-width: 485px) {
+  .attribute {
+    width: 90%;
+    margin: 3px auto;
+  }
 }
 
 .card {
   background-color: #3a3a3a;
   border-radius: 10px;
   padding: 20px;
-  margin-bottom: 20px;
-  width: 90%;
-  max-width: 1200px; /* Increased max-width */
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  max-width: 980px;
+  min-width: 300px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
 }
 
 .card .person-info {
   display: flex;
   flex-direction: column;
+  justify-self: flex-start;
   margin-bottom: 20px;
 }
 
@@ -197,9 +227,13 @@ header {
 }
 
 .card .attributes-grid {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
-  gap: 10px;
+  /*gap: 10px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .card .attribute {
@@ -226,6 +260,9 @@ header {
 }
 
 .featured-tradesmen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 60px 20px; /* Increased padding top and bottom */
   margin: 40px 0; /* Added margin top and bottom */
 }
@@ -234,8 +271,6 @@ header {
   font-size: 25px;
   margin-bottom: 30px;
 }
-
-/* Add these styles to your existing CSS file */
 
 #tradesmen-list-container {
   width: 100%;
@@ -295,15 +330,21 @@ footer {
   width: 100%;
   max-width: 300px;
 }
+#tradesman-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #tradesman-search {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   border: 2px solid rgb(255, 208, 0);
   border-radius: 5px;
   font-size: 16px;
   background-color: #2c2c2c;
   color: white;
+  margin: 0 auto;
 }
 
 #tradesman-search::placeholder {
@@ -423,7 +464,9 @@ footer {
   padding: 20px;
   border-radius: 5px;
   max-width: 500px;
-  width: 100%;
+  width: 95%;
+  max-height: 90vh; /* 90% of the viewport height */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
 }
 
 .popup h2 {
@@ -434,7 +477,7 @@ footer {
 .popup input,
 .popup button {
   display: block;
-  width: 100%;
+  width: 90%;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ffd000;
@@ -451,4 +494,253 @@ footer {
 
 .popup button:hover {
   background-color: #e6bc00;
+}
+
+/* Base styles */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header styles */
+header {
+  background-color: rgb(255, 208, 0);
+  height: 10vh;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.hammer-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  color: #2c2c2c;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c2c2c;
+}
+
+.header-links {
+  display: flex;
+  gap: 15px;
+}
+
+.header-link {
+  color: #2c2c2c;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Main content styles */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Card styles */
+.card {
+  background-color: #3a3a3a;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.attributes-grid {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px; */
+}
+
+/* Button styles */
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(255, 208, 0);
+  color: #2c2c2c;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Tradesmen list styles */
+#tradesmen-list {
+  column-count: 3;
+  column-gap: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+#tradesmen-list li {
+  break-inside: avoid-column;
+  margin-bottom: 10px;
+}
+
+/* Footer styles */
+footer {
+  background-color: #5a5a5a;
+  color: #2c2c2c;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .main-content {
+    padding: 15px;
+  }
+
+  #tradesmen-list {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+  }
+
+  .logo {
+    margin-bottom: 15px;
+  }
+
+  .header-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .attributes-grid {
+    /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+  }
+
+  #tradesmen-list {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .hammer-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .logo-text {
+    font-size: 18px;
+  }
+
+  .header-link {
+    font-size: 12px;
+  }
+
+  .attributes-grid {
+    /* grid-template-columns: 1fr; */
+  }
+
+  #tradesmen-list {
+    column-count: 1;
+  }
+}
+
+.popup-content {
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .popup-content {
+    padding: 15px;
+  }
+
+  .popup input,
+  .popup button {
+    font-size: 14px;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .attributes-grid {
+    /* grid-template-columns: repeat(2, 1fr); */
+  }
+}
+
+@media (max-width: 768px) {
+  .attributes-grid {
+    /* grid-template-columns: 1fr; */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 15px;
+  }
+
+  .attribute {
+    /* flex-direction: column; */
+    /* align-items: flex-start; */
+  }
+
+  .attribute-rating {
+    /* align-self: flex-end; */
+  }
+}
+
+body.popup-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+.popup {
+  z-index: 1000;
 }

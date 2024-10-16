@@ -75,14 +75,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function displayResults(results) {
-    console.log("Displaying results:", results);
     searchResults.innerHTML = "";
+    const isMobile = window.innerWidth <= 768;
     results.forEach((tradesman) => {
       const li = document.createElement("li");
-      li.textContent =
-        searchMode === "location"
-          ? `${tradesman.name} (${tradesman.location})`
-          : tradesman.name;
+      if (isMobile) {
+        li.textContent = tradesman.name;
+      } else {
+        li.textContent =
+          searchMode === "location"
+            ? `${tradesman.name} (${tradesman.location})`
+            : tradesman.name;
+      }
       li.addEventListener("click", function () {
         window.location.href = `tradesman.html?id=${tradesman.id}`;
       });

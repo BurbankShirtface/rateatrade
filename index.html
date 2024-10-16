@@ -38,13 +38,15 @@
           <a href="index.html" class="header-link">Home</a>
           <a href="tradesmen.html" class="header-link">Tradesmen</a>
           <a href="about.html" class="header-link">About</a>
-          <a href="#" class="header-link">Contact</a>
+          <!-- <a href="#" class="header-link">Contact</a> -->
         </nav>
       </header>
       <main class="main-content">
         <section class="hero">
           <h1>RATE A TRADESMAN</h1>
-          <p>Your source for skilled tradesmen ratings and information</p>
+          <p class="hero-p">
+            Your source for skilled tradesmen ratings and information
+          </p>
           <a href="#" class="cta-button" id="add-tradesman-btn"
             >Add A Tradesperson</a
           >
@@ -92,7 +94,6 @@
     </div>
     <script src="dummy-data.js"></script>
     <script src="app.js"></script>
-    <!-- Add this just before the closing </body> tag -->
     <div id="add-tradesman-popup" class="popup" style="display: none">
       <div class="popup-content">
         <h2>Add New Tradesperson</h2>
@@ -125,5 +126,6 @@
         <button id="ok-button">Ok</button>
       </div>
     </div>
+    <div id="overlay" class="overlay"></div>
   </body>
 </html>

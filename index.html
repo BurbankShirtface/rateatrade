@@ -65,8 +65,11 @@
             <input
               type="text"
               id="tradesman-search"
-              placeholder="Search..."
+              placeholder="Search by Name or Location"
               autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
             />
             <ul id="search-results"></ul>
           </div>
@@ -92,22 +95,35 @@
         <p>&copy; 2023 The Weekly Tradesman. All rights reserved.</p>
       </footer>
     </div>
-    <script src="dummy-data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="supabase.js"></script>
     <script src="app.js"></script>
-    <div id="add-tradesman-popup" class="popup" style="display: none">
+    <script src="search.js"></script>
+    <script src="tradesmen.js"></script>
+    <script src="tradesman.js"></script>
+    <div id="add-tradesman-popup" class="popup">
       <div class="popup-content">
         <h2>Add New Tradesperson</h2>
-        <form id="add-tradesman-form">
-          <input type="text" id="new-name" placeholder="Name" required />
+        <form id="add-tradesman-form" autocomplete="off">
+          <input
+            type="text"
+            id="new-name"
+            name="name"
+            placeholder="Name"
+            required
+          />
           <input
             type="text"
             id="new-location"
+            name="location"
             placeholder="Location"
             required
           />
           <input
             type="text"
             id="new-specializations"
+            name="specializations"
             placeholder="Specializations (comma-separated)"
             required
           />
@@ -119,7 +135,7 @@
       </div>
     </div>
 
-    <div id="success-popup" class="popup" style="display: none">
+    <div id="success-popup" class="popup">
       <div class="popup-content">
         <h2>Success!</h2>
         <p>Tradesperson has been added. Thanks!</p>

@@ -1,3 +1,4 @@
+/* Base styles */
 html,
 body {
   height: 100%;
@@ -11,6 +12,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   background-color: #2c2c2c;
+  color: white;
 }
 
 .page-wrapper {
@@ -19,10 +21,11 @@ body {
   min-height: 100vh;
 }
 
+/* Header styles */
 header {
   background-color: rgb(255, 208, 0);
-  height: 10vh; /* This sets the height to 10% of the viewport height */
-  min-height: 80px; /* This ensures a minimum height on smaller screens */
+  height: 10vh;
+  min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,27 +67,15 @@ header {
   text-decoration: underline;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
-  }
-
-  .logo {
-    margin-bottom: 20px;
-  }
-
-  .header-links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
+/* Main content styles */
 .main-content {
   padding: 40px;
   color: white;
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero {
@@ -98,88 +89,7 @@ header {
   text-align: center;
 }
 
-.tradesman {
-  max-width: 1200px;
-  width: 90%;
-  margin-top: 60px;
-}
-
-.person-info {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  align-self: flex-start;
-  width: 100%;
-}
-
-.person-name {
-  font-size: 32px;
-  margin: 0 0 10px 0;
-}
-
-.overall {
-  font-size: 18px;
-  margin: 0 0 10px 0;
-  color: #ffd000;
-}
-
-.specializations {
-  font-size: 16px;
-  color: #ffd000;
-  align-self: flex-end;
-  margin: -28px 0 0 0;
-}
-
-.person-box {
-  background-color: #3a3a3a;
-  border-radius: 10px;
-  padding: 20px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 95%;
-}
-
-.attribute {
-  /* flex: 1 1 calc(33.333% - 5px); */
-  width: 30%;
-  min-width: 230px;
-  background-color: #2c2c2c;
-  padding: 10px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 10px auto;
-}
-
-.attribute-name {
-  flex: 1;
-  margin-right: 10px;
-  /* word-wrap: break-word; */
-  text-wrap: wrap;
-  max-width: 70%;
-}
-
-.attribute-rating {
-  flex-shrink: 0;
-}
-
-@media (max-width: 640px) {
-  .attribute {
-    width: 80%;
-    margin: 3px auto;
-  }
-}
-
-@media (max-width: 485px) {
-  .attribute {
-    width: 90%;
-    margin: 3px auto;
-  }
-}
-
+/* Card styles */
 .card {
   background-color: #3a3a3a;
   border-radius: 10px;
@@ -198,26 +108,29 @@ header {
 .card .person-info {
   display: flex;
   flex-direction: column;
-  justify-self: flex-start;
+  align-items: flex-start;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .card .person-name {
-  font-size: 24px;
+  font-size: 32px;
   margin: 0 0 10px 0;
+  text-align: left;
 }
 
 .card .overall {
   font-size: 18px;
   margin: 0 0 10px 0;
   color: #ffd000;
+  text-align: left;
 }
 
 .card .specializations {
   font-size: 16px;
   color: #ffd000;
-  align-self: flex-start;
-  margin: 0;
+  margin: 0 0 10px 0;
+  text-align: left;
 }
 
 .card .person-box {
@@ -227,9 +140,6 @@ header {
 }
 
 .card .attributes-grid {
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
-  /*gap: 10px; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -243,28 +153,34 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 30%;
+  min-width: 230px;
+  margin: 10px auto;
 }
 
 .card .attribute-name {
-  font-size: 13px; /* Slightly reduced font size */
-  flex: 1; /* Allow the name to take up available space */
-  margin-right: 10px; /* Add some space between name and rating */
+  font-size: 13px;
+  flex: 1;
+  margin-right: 10px;
+  text-wrap: wrap;
+  max-width: 70%;
 }
 
 .card .attribute-rating {
   font-size: 16px;
   font-weight: bold;
   color: #ffd000;
-  min-width: 30px; /* Ensure consistent width for ratings */
+  min-width: 30px;
   text-align: right;
 }
 
+/* Featured tradesmen styles */
 .featured-tradesmen {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 20px; /* Increased padding top and bottom */
-  margin: 40px 0; /* Added margin top and bottom */
+  padding: 60px 20px;
+  margin: 40px 0;
 }
 
 .featured-tradesmen h2 {
@@ -272,6 +188,7 @@ header {
   margin-bottom: 30px;
 }
 
+/* Tradesmen list styles */
 #tradesmen-list-container {
   width: 100%;
   max-width: 1200px;
@@ -305,77 +222,67 @@ header {
   background-color: rgba(255, 208, 0, 0.2);
 }
 
-@media (max-width: 768px) {
-  #tradesmen-list {
-    column-count: 2;
-  }
-}
-
-@media (max-width: 480px) {
-  #tradesmen-list {
-    column-count: 1;
-  }
-}
-
+/* Footer styles */
 footer {
   background-color: #5a5a5a;
   color: #2c2c2c;
   text-align: center;
   padding: 5px 0;
-  margin-top: auto; /* This pushes the footer to the bottom */
+  margin-top: auto;
 }
 
+/* Search styles */
 #search-container {
-  margin-top: 20px;
+  position: relative;
   width: 100%;
   max-width: 300px;
-}
-#tradesman-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#tradesman-search {
-  width: 90%;
-  padding: 10px;
-  border: 2px solid rgb(255, 208, 0);
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #2c2c2c;
-  color: white;
   margin: 0 auto;
 }
 
-#tradesman-search::placeholder {
-  color: #888;
-}
-
-#tradesman-search:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(255, 208, 0, 0.5);
+#tradesman-search {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 #search-results {
+  position: absolute;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
   list-style-type: none;
   padding: 0;
   margin: 0;
-  background-color: white;
-  border-radius: 0 0 5px 5px;
-  max-height: 200px;
-  overflow-y: auto;
+  z-index: 1000;
 }
 
 #search-results li {
   padding: 10px;
   cursor: pointer;
-  color: black; /* This sets the text color to black */
 }
 
 #search-results li:hover {
   background-color: #f0f0f0;
 }
 
+.tradesman-name {
+  display: block;
+  font-weight: bold;
+}
+
+.tradesman-location {
+  display: block;
+  font-style: italic;
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Button styles */
 .cta-button {
   display: inline-block;
   padding: 10px 20px;
@@ -385,7 +292,7 @@ footer {
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s ease;
-  margin: 10px 0; /* This adds vertical spacing between buttons */
+  margin: 10px 0;
 }
 
 .cta-button:hover,
@@ -395,13 +302,13 @@ footer {
   color: #2c2c2c;
 }
 
-/* If you want the buttons to be on separate lines, add this: */
 .hero .cta-button {
   display: block;
-  max-width: 200px; /* Adjust this value as needed */
-  margin: 10px auto; /* This centers the buttons and adds vertical spacing */
+  max-width: 200px;
+  margin: 10px auto;
 }
 
+/* About page styles */
 .about-content {
   max-width: 800px;
   margin: 0 auto;
@@ -415,7 +322,7 @@ footer {
 .page-title {
   text-align: center;
   margin-bottom: 30px;
-  color: #ffd000; /* This matches the yellow color used elsewhere */
+  color: #ffd000;
 }
 
 .location {
@@ -424,6 +331,7 @@ footer {
   margin-top: 5px;
 }
 
+/* Search options styles */
 #search-options {
   margin-top: 20px;
   display: flex;
@@ -446,176 +354,81 @@ footer {
   background-color: #e6bc00;
 }
 
-.popup {
+/* Popup styles */
+body.popup-open {
+  overflow: hidden;
+}
+
+.overlay {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 999;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2c2c2c;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
   z-index: 1000;
+  max-width: 80%;
+  width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .popup-content {
-  background-color: #2c2c2c;
-  padding: 20px;
-  border-radius: 5px;
-  max-width: 500px;
-  width: 95%;
-  max-height: 90vh; /* 90% of the viewport height */
-  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-.popup h2 {
-  color: #ffd000;
-  margin-bottom: 20px;
+.popup-content h2 {
+  color: rgb(255, 208, 0);
 }
 
-.popup input,
-.popup button {
-  display: block;
-  width: 90%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ffd000;
-  background-color: #3c3c3c;
-  color: white;
-}
-
-.popup button {
-  background-color: #ffd000;
+.popup-content button {
+  background-color: rgb(255, 208, 0);
   color: #2c2c2c;
-  border: none;
-  cursor: pointer;
-}
-
-.popup button:hover {
-  background-color: #e6bc00;
-}
-
-/* Base styles */
-body {
   font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #2c2c2c;
-  color: white;
-}
-
-.page-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Header styles */
-header {
-  background-color: rgb(255, 208, 0);
-  height: 10vh;
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.hammer-icon {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  color: #2c2c2c;
-}
-
-.logo-text {
-  font-size: 20px;
-  font-weight: 700;
-  color: #2c2c2c;
-}
-
-.header-links {
-  display: flex;
-  gap: 15px;
-}
-
-.header-link {
-  color: #2c2c2c;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-/* Main content styles */
-.main-content {
-  flex: 1;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Card styles */
-.card {
-  background-color: #3a3a3a;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.attributes-grid {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px; */
-}
-
-/* Button styles */
-.cta-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: rgb(255, 208, 0);
-  color: #2c2c2c;
-  text-decoration: none;
-  border-radius: 5px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
-  margin: 10px 0;
-  text-align: center;
 }
 
-/* Tradesmen list styles */
-#tradesmen-list {
-  column-count: 3;
-  column-gap: 20px;
-  list-style-type: none;
-  padding: 0;
+#add-tradesman-form {
+  display: flex;
+  flex-direction: column;
 }
 
-#tradesmen-list li {
-  break-inside: avoid-column;
+#add-tradesman-form input,
+#add-tradesman-form button {
   margin-bottom: 10px;
+  padding: 5px;
 }
 
-/* Footer styles */
-footer {
-  background-color: #5a5a5a;
-  color: #2c2c2c;
-  text-align: center;
-  padding: 10px 0;
-  margin-top: auto;
+.attribute-input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: rgb(255, 208, 0);
+}
+
+.attribute-input label {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.attribute-input input {
+  width: 60px;
 }
 
 /* Responsive styles */
@@ -645,12 +458,12 @@ footer {
     justify-content: center;
   }
 
-  .attributes-grid {
-    /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
-  }
-
   #tradesmen-list {
     column-count: 2;
+  }
+
+  .card .attribute {
+    width: 45%;
   }
 }
 
@@ -668,23 +481,14 @@ footer {
     font-size: 12px;
   }
 
-  .attributes-grid {
-    /* grid-template-columns: 1fr; */
-  }
-
   #tradesmen-list {
     column-count: 1;
   }
-}
 
-.popup-content {
-  width: 90%;
-  max-width: 500px;
-  padding: 20px;
-  box-sizing: border-box;
-}
+  .card .attribute {
+    width: 100%;
+  }
 
-@media (max-width: 480px) {
   .popup-content {
     padding: 15px;
   }
@@ -695,52 +499,15 @@ footer {
   }
 }
 
-/* Responsive styles */
-@media (max-width: 1024px) {
-  .attributes-grid {
-    /* grid-template-columns: repeat(2, 1fr); */
-  }
+#tradesman-search:-webkit-autofill,
+#tradesman-search:-webkit-autofill:hover,
+#tradesman-search:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: inherit !important;
 }
 
-@media (max-width: 768px) {
-  .attributes-grid {
-    /* grid-template-columns: 1fr; */
-  }
-}
-
-@media (max-width: 480px) {
-  .card {
-    padding: 15px;
-  }
-
-  .attribute {
-    /* flex-direction: column; */
-    /* align-items: flex-start; */
-  }
-
-  .attribute-rating {
-    /* align-self: flex-end; */
-  }
-}
-
-body.popup-open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  display: none;
-}
-
-.popup {
-  z-index: 1000;
+body.tradesman-page #tradesman-details h2 {
+  color: rgb(255, 208, 0); /* or #ffd000 */
+  font-size: 32px;
+  margin-bottom: 15px;
 }

@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: rateatrade
+    env: static
+    buildCommand: echo "No build command"
+    staticPublishPath: .
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false

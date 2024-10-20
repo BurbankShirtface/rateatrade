@@ -3,3 +3,4 @@
    config.js
    .DS_Store
    *.log
+   !config.js.template

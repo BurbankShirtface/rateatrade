@@ -21,43 +21,48 @@ async function displayFeaturedTradesman() {
   if (!featuredSection) return;
 
   try {
-    console.log("Fetching featured tradesman...");
-    const { data, error } = await window.supabase
-      .from("tradesmen")
-      .select("*")
-      .limit(1)
-      .single();
+    console.log("Fetching all tradesmen...");
+    const { data, error } = await window.supabase.from("tradesmen").select("*");
 
     if (error) {
       console.error("Supabase error:", error);
       throw error;
     }
 
-    console.log("Featured tradesman data:", data);
+    if (data && data.length > 0) {
+      // Select a random tradesman from the data array
+      const randomIndex = Math.floor(Math.random() * data.length);
+      const randomTradesman = data[randomIndex];
 
-    if (data) {
+      console.log("Random tradesman data:", randomTradesman);
+
       featuredSection.innerHTML = `
         <h2>Featured Tradesman</h2>
         <div class="card">
           <div class="person-info">
-            <h3 class="person-name">${data.name}</h3>
+            <h3 class="person-name">${randomTradesman.name}</h3>
             <p class="overall">Overall: <span id="overall-rating">${calculateOverallRating(
-              data.attributes
+              randomTradesman.attributes
             )}</span></p>
-            <p class="specializations">${data.specializations.join(", ")}</p>
-            <p class="location">${data.location}</p>
+            <p class="specializations">${randomTradesman.specializations.join(
+              ", "
+            )}</p>
+            <p class="location">${randomTradesman.location}</p>
           </div>
           <div class="person-box">
             <div class="attributes-grid">
-              ${generateAttributesHTML(data.attributes)}
+              ${generateAttributesHTML(randomTradesman.attributes)}
             </div>
           </div>
         </div>
       `;
+    } else {
+      featuredSection.innerHTML = "<p>No tradesmen available.</p>";
     }
   } catch (error) {
-    console.error("Error fetching featured tradesman:", error);
+    console.error("Error fetching tradesmen:", error);
     console.error("Error details:", JSON.stringify(error, null, 2));
+    featuredSection.innerHTML = "<p>Error loading featured tradesman.</p>";
   }
 }
 
